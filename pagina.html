@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burgiarepas - Arepas Futuristas</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1f1c2c, #928dab);
+            overflow: hidden;
+            color: white;
+        }
+
+        /* Intro screen */
+        #intro-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, #0f2027, #203a43, #2c5364);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            z-index: 1000;
+        }
+        #intro-screen h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: neonGlow 1.5s infinite alternate;
+        }
+        #intro-screen p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+        #intro-screen button {
+            background: linear-gradient(90deg, #ff6f61, #ff9068);
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            color: white;
+            text-transform: uppercase;
+            animation: pulse 2s infinite;
+            transition: transform 0.3s;
+        }
+        #intro-screen button:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes neonGlow {
+            from { text-shadow: 0 0 10px #ff6f61, 0 0 20px #ff6f61; }
+            to { text-shadow: 0 0 20px #ff9068, 0 0 30px #ff9068; }
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 5px #ff6f61; }
+            50% { box-shadow: 0 0 20px #ff9068; }
+            100% { box-shadow: 0 0 5px #ff6f61; }
+        }
+
+        /* Page content */
+        #main-content {
+            opacity: 0;
+            display: none;
+            animation: fadeInContent 1s ease-in forwards;
+        }
+        @keyframes fadeInContent {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        header {
+            background: linear-gradient(90deg, #203a43, #2c5364);
+            text-align: center;
+            padding: 20px 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        header h1 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px 0;
+            backdrop-filter: blur(10px);
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            text-shadow: 0 0 10px #ff6f61;
+        }
+        section {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 10px;
+        }
+        .intro {
+            text-align: center;
+            padding: 20px;
+            animation: fadeInSection 2s ease-in;
+        }
+        @keyframes fadeInSection {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .intro h2 {
+            font-size: 2.5rem;
+            color: #ff6f61;
+        }
+        .team {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .team .member {
+            background: linear-gradient(135deg, #2c5364, #203a43);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            color: white;
+        }
+        .team .member:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+        .team .member h3 {
+            margin: 10px 0 5px;
+            color: #ff9068;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #1f1c2c;
+            color: white;
+            font-size: 0.9rem;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+    <script>
+        function showMainContent() {
+            const introScreen = document.getElementById("intro-screen");
+            const mainContent = document.getElementById("main-content");
+
+            introScreen.style.display = "none";
+            mainContent.style.display = "block";
+        }
+    </script>
+</head>
+<body>
+    <div id="intro-screen">
+        <h1>Burgiarepas</h1>
+        <p>Donde el sabor y el futuro se encuentran.</p>
+        <button onclick="showMainContent()">Explorar</button>
+    </div>
+
+    <div id="main-content">
+        <header>
+            <h1>Burgiarepas</h1>
+            <p>Venta de arepas rellenas, hechas con amor y un toque futurista.</p>
+        </header>
+        <nav>
+            <a href="#about">Inicio</a>
+            <a href="#team">Equipo</a>
+            <a href="#contact">Contacto</a>
+        </nav>
+        <section id="about">
+            <div class="intro">
+                <h2>¡Bienvenidos a Burgiarepas!</h2>
+                <p>Descubre las mejores arepas rellenas con un estilo innovador, creadas con ingredientes frescos y un toque especial de sabor futurista.</p>
+            </div>
+        </section>
+        <section id="team">
+            <h2>Nuestro Equipo</h2>
+            <div class="team">
+                <div class="member">
+                    <h3>Janer Morales</h3>
+                    <p>experto en ventas</p>
+                </div>
+                <div class="member">
+                    <h3>Deiler Barreto</h3>
+                    <p>encargado de alimentos</p>
+                </div>
+                <div class="member">
+                    <h3>Daniel Mendez</h3>
+                    <p>Experto en finanzas</p>
+                </div>
+                <div class="member">
+                    <h3>Steven Florez</h3>
+                    <p>Encargado de Marketing</p>
+                </div>
+            </div>
+        </section>
+        <footer id="contact">
+            <p>&copy; 2025 Burgiarepas. Todos los derechos reservados. Contáctanos: contacto@burgiarepas.com</p>
+        </footer>
+    </div>
+</body>
+</html>
